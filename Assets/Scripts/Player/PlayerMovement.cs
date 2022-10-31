@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 3;
-    public float horizontalSpeed = 3;
+    public float horizontalSpeed = 8;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +18,17 @@ public class PlayerMovement : MonoBehaviour
         // Player Moving Forward Automatically. Moving Left & Right With Key Press
         transform.Translate(new Vector3(0,0, Time.deltaTime * playerSpeed));
 
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(new Vector3(0, 0, Time.deltaTime * horizontalSpeed));
+            if (this.gameObject.transform.position.x > -2.5f) { 
+                transform.Translate(new Vector3(Time.deltaTime * horizontalSpeed *-1, 0, 0));
+            }
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            if (this.gameObject.transform.position.x < 2.5f){
+                transform.Translate(new Vector3(Time.deltaTime * horizontalSpeed , 0, 0));
+            }
         }
     }
 }

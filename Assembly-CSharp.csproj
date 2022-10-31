@@ -57,6 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Player/PlayerMovement.cs" />
+    <Compile Include="Assets/Scripts/Objects/Rotate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets/SimpleLowPolyNature/Readme.txt" />
+    <None Include="Assets/SimpleLowPolyNature/Shaders/SimpleWater.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

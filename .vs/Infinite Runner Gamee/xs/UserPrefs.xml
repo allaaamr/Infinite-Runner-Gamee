@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{8B798EE9-93BE-4AA8-FC80-0CE720782D2E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../My project (1)/Assets/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Objects/Rotate.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerMovement.cs" Line="17" Column="42" />
-      <File FileName="../../../My project (1)/Assets/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerMovement.cs" Line="8" Column="37" />
+      <File FileName="../../../My project (1)/Assets/Player.cs" Line="23" Column="115" />
+      <File FileName="Assets/Scripts/Objects/Rotate.cs" Line="21" Column="1" />
+      <File FileName="../../../My project (1)/Assets/rotate.cs" Line="7" Column="29" />
+      <File FileName="../../../My project (1)/Assets/instantiate_coin.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,9 +13,10 @@
           <Node name="Infinite Runner Gamee" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Player" expanded="True">
-                  <Node name="PlayerMovement.cs" selected="True" />
+                <Node name="Objects" expanded="True">
+                  <Node name="Rotate.cs" selected="True" />
                 </Node>
+                <Node name="Player" expanded="True" />
               </Node>
             </Node>
           </Node>
