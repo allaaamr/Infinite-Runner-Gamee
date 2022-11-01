@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/Player/PlayerMovement.cs" />
     <Compile Include="Assets/Scripts/Objects/Rotate.cs" />
+    <Compile Include="Assets/Scripts/Player/Instantiate_capsules.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/SimpleLowPolyNature/Readme.txt" />
