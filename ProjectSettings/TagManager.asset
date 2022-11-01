@@ -9,6 +9,9 @@ TagManager:
   - ThreeLaneObstacle
   - Health
   - Ability
+  - Jump3Lane
+  - Jump2Lane
+  - Jump1Lane
   layers:
   - Default
   - TransparentFX

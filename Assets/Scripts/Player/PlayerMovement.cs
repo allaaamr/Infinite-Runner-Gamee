@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 3;
     public float horizontalSpeed = 8;
+    public int health_points = 5;
+    public int ability_points = 10;
     // Start is called before the first frame update
     void Start()
     {
