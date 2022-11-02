@@ -7,20 +7,32 @@ public class player : MonoBehaviour
     public int healthPoints = 5;
     public int abilityPoints = 10;
     public int score = 0;
-    public float playerSpeed = 3;
+    public float playerSpeed = 5;
     public float horizontalSpeed = 8;
+    public float jumpAmount = 5;
     public GameOverPanel gameOverPanel;
+    public Rigidbody rb;
+    public AudioSource background;
+    public AudioSource collect;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        background.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(healthPoints <= 0)
+        if (abilityPoints>0 && this.gameObject.transform.position.y <1 && Input.GetKeyDown(KeyCode.Space))
+
+        {
+            rb.AddForce(Vector2.up * jumpAmount, ForceMode.Impulse);
+            abilityPoints -= 1;
+        }
+
+        if (healthPoints <= 0)
         {
             GameOver();
         }
@@ -47,6 +59,7 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("OneLaneObstacle"))
         {
+            
             healthPoints -= 3;
             Destroy(collision.gameObject);
             Debug.Log("Health " + healthPoints);
@@ -80,14 +93,20 @@ public class player : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Health"))
         {
+            
             healthPoints += 1;
+            collect.Play();
+            Debug.Log("Aloooo");
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Ability"))
         {
+            
             abilityPoints += 1;
+            Debug.Log("Aloooo");
             Destroy(collision.gameObject);
             Debug.Log(abilityPoints);
+            collect.Play();
         }
 
     }

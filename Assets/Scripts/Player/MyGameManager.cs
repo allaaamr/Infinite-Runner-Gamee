@@ -4,26 +4,45 @@ using UnityEngine;
 
 public class MyGameManager : MonoBehaviour
 {
+
     public GameObject[] objectPrefabs;
     public GameObject scene;
     public GameObject player;
     public int zLocation = -20;
     public int numberOfColliders = 13;
     public int sceneCount = 1;
+    public GameOverPanel gameOverPanel;
+    public AudioSource background;
+    public AudioSource pause;
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < numberOfColliders; i++)
-        {
-            tiles(Random.Range(0, 4));
-        }
+        pause.Play();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PauseMenu.GameIsPaused);
+        if (PauseMenu.GameIsPaused)
+        {
+            background.Play();
+            pause.Pause();
+        }
+        else
+        {
+            pause.Play();
+            background.Pause();
+
+           
+        }
+        for (int i = 0; i < numberOfColliders; i++)
+        {
+            tiles(Random.Range(0, 4));
+        }
+
         if (sceneCount == 1 && player.transform.position.z > -10)
         {
             Debug.Log("Hi1");
@@ -50,4 +69,5 @@ public class MyGameManager : MonoBehaviour
         Instantiate(objectPrefabs[index], new Vector3(0, 0, zLocation), transform.rotation);
         zLocation += 4;
     }
+   
 }
