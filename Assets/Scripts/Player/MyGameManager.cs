@@ -12,12 +12,14 @@ public class MyGameManager : MonoBehaviour
     public int numberOfColliders = 13;
     public int sceneCount = 1;
     public GameOverPanel gameOverPanel;
+    public GameObject homePanel;
     public AudioSource background;
     public AudioSource pause;
 
     // Start is called before the first frame update
     void Start()
     {
+        homePanel.SetActive(true);
         pause.Play();
 
     }
@@ -28,11 +30,13 @@ public class MyGameManager : MonoBehaviour
         Debug.Log(PauseMenu.GameIsPaused);
         if (PauseMenu.GameIsPaused)
         {
+            homePanel.SetActive(false);
             background.Play();
             pause.Pause();
         }
         else
         {
+            homePanel.SetActive(true);
             pause.Play();
             background.Pause();
 
@@ -40,7 +44,7 @@ public class MyGameManager : MonoBehaviour
         }
         for (int i = 0; i < numberOfColliders; i++)
         {
-            tiles(Random.Range(0, 4));
+            tiles(Random.Range(0, objectPrefabs.Length));
         }
 
         if (sceneCount == 1 && player.transform.position.z > -10)
@@ -67,7 +71,7 @@ public class MyGameManager : MonoBehaviour
     public void tiles(int index)
     {
         Instantiate(objectPrefabs[index], new Vector3(0, 0, zLocation), transform.rotation);
-        zLocation += 4;
+        zLocation += 6;
     }
    
 }
