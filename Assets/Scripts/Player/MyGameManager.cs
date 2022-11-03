@@ -4,74 +4,140 @@ using UnityEngine;
 
 public class MyGameManager : MonoBehaviour
 {
-
     public GameObject[] objectPrefabs;
+    private List<GameObject> activeScene;
+    private List<GameObject> activePrefabs;
     public GameObject scene;
-    public GameObject player;
-    public int zLocation = -20;
-    public int numberOfColliders = 13;
+    public GameObject player_obj;
+    public int zLocation = -35;
+    public int numberOfColliders = 11;
     public int sceneCount = 1;
     public GameOverPanel gameOverPanel;
     public GameObject homePanel;
-    public AudioSource background;
-    public AudioSource pause;
+    private bool QPressed = false;
+    
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         homePanel.SetActive(true);
-        pause.Play();
+        activePrefabs = new List<GameObject>();
+        activeScene = new List<GameObject>();
+        GameObject FirstScene = GameObject.FindGameObjectWithTag("firstScene");
+        activeScene.Add(FirstScene);
+
+        for (int i = 0; i < numberOfColliders; i++)
+        {
+            tiles(Random.Range(0, objectPrefabs.Length - 1));
+        }
+
 
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        Debug.Log(PauseMenu.GameIsPaused);
+        if (Input.GetKey(KeyCode.Q) && player.abilityPoints >=5)
+        {
+            Debug.Log("Wiill Doo");
+            player.abilityPoints -= 5;
+            for (int i = 0; i < 10; i++)
+            {
+                DeletePrefab();
+            }
+            QPressed = true;
+        }
+
         if (PauseMenu.GameIsPaused)
         {
             homePanel.SetActive(false);
-            background.Play();
-            pause.Pause();
+            //background.Play();
         }
         else
         {
             homePanel.SetActive(true);
-            pause.Play();
-            background.Pause();
+            //background.Pause();
 
-           
-        }
-        for (int i = 0; i < numberOfColliders; i++)
-        {
-            tiles(Random.Range(0, objectPrefabs.Length));
+
         }
 
-        if (sceneCount == 1 && player.transform.position.z > -10)
+        if (sceneCount == 1 && player_obj.transform.position.z > -28) 
         {
-            Debug.Log("Hi1");
-            Vector3 pos = new Vector3(0, 0, 60);
-            Instantiate(scene, pos, scene.transform.rotation);
-            sceneCount += 1;
-        }
-
-        else if (player.transform.position.z > 25 * sceneCount)
-        {
-            Debug.Log("Hi");
-            Vector3 pos = new Vector3(0, 0, 60 * sceneCount);
-            Instantiate(scene, pos, scene.transform.rotation);
-            sceneCount += 1;
+            GameObject sceneObject;
+            Vector3 pos = new Vector3(0, 0, 62);
+            sceneObject = Instantiate(scene);
+            sceneObject.transform.position = pos;
+            activeScene.Add(sceneObject);
+            
             for (int i = 0; i < numberOfColliders; i++)
             {
-                tiles(Random.Range(0, 4));
+                tiles(Random.Range(0, objectPrefabs.Length - 1));
             }
+            sceneCount += 1;
+
+        }
+        if (sceneCount>1 && player_obj.transform.position.z > (60 * (sceneCount-1)-25))
+        {
+            GameObject sceneObject;
+            Vector3 pos = new Vector3(0, 0, (60 * (sceneCount)));
+            sceneObject = Instantiate(scene);
+            sceneObject.transform.position = pos;
+            activeScene.Add(sceneObject);
+            sceneCount += 1;
+
+
+            
+                for (int i = 0; i < numberOfColliders; i++)
+                {
+                    tiles(Random.Range(0, objectPrefabs.Length - 1));
+                if (!QPressed)
+                {
+                    DeletePrefab();
+                }
+                }
+                DeleteScene();
+                QPressed = true;
+            
+            
+
         }
 
     }
+
     public void tiles(int index)
     {
-        Instantiate(objectPrefabs[index], new Vector3(0, 0, zLocation), transform.rotation);
+        GameObject tile;
+        tile = Instantiate(objectPrefabs[index]) as GameObject;
+        tile.transform.position = new Vector3(0, 0, zLocation);
+        //Instantiate(objectPrefabs[index], new Vector3(0, 0, zLocation), transform.rotation);
         zLocation += 6;
+        Debug.Log("Creating Prefab");
+        activePrefabs.Add(tile);
     }
-   
+
+    //public void setVolume(float sliderValue)
+    //{
+    //    background.volume = sliderValue;
+    //    Debug.Log(background.volume);
+    //}
+
+    private void DeletePrefab()
+    {
+        Debug.Log("Deleting Prefab");
+        Destroy(activePrefabs[0]);
+        activePrefabs.RemoveAt(0);
+        
+    }
+
+    private void DeleteScene()
+    {
+        
+        Destroy(activeScene[0]);
+        activeScene.RemoveAt(0);
+    }
+
+
 }

@@ -12,6 +12,7 @@ TagManager:
   - Jump3Lane
   - Jump2Lane
   - Jump1Lane
+  - firstScene
   layers:
   - Default
   - TransparentFX
