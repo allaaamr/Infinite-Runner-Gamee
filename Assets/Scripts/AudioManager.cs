@@ -14,12 +14,12 @@ public class AudioManager : MonoBehaviour
         Debug.Log(PauseMenu.GameIsPaused);
         if (PauseMenu.GameIsPaused)
         {
-            backgroundAudio.Play();
+            //backgroundAudio.Play();
             Debug.Log("Here1");
         }
         else
         {
-             backgroundAudio.Pause();
+             //backgroundAudio.Pause();
         }
         
     }

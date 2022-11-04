@@ -15,13 +15,12 @@ public class MyGameManager : MonoBehaviour
     public GameOverPanel gameOverPanel;
     public GameObject homePanel;
     private bool QPressed = false;
-    
-    
-
+    public AudioSource backg;
 
     // Start is called before the first frame update
     void Start()
     {
+        backg.Play();
         homePanel.SetActive(true);
         activePrefabs = new List<GameObject>();
         activeScene = new List<GameObject>();
@@ -33,7 +32,6 @@ public class MyGameManager : MonoBehaviour
             tiles(Random.Range(0, objectPrefabs.Length - 1));
         }
 
-
     }
 
     // Update is called once per frame
@@ -42,28 +40,27 @@ public class MyGameManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q) && player.abilityPoints >=5)
         {
-            Debug.Log("Wiill Doo");
-            player.abilityPoints -= 5;
-            for (int i = 0; i < 10; i++)
+            int length = activePrefabs.ToArray().Length;
+            for ( int i = 0; i<length; i++)
             {
                 DeletePrefab();
-            }
+            }   
             QPressed = true;
+            activePrefabs.Clear();
         }
 
         if (PauseMenu.GameIsPaused)
         {
+            Debug.Log("I Am Paused");
             homePanel.SetActive(false);
-            //background.Play();
         }
         else
         {
+            Debug.Log("I Am Playing");
             homePanel.SetActive(true);
-            //background.Pause();
 
 
         }
-
         if (sceneCount == 1 && player_obj.transform.position.z > -28) 
         {
             GameObject sceneObject;

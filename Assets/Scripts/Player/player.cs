@@ -14,10 +14,11 @@ public class player : MonoBehaviour
     public GameOverPanel gameOverPanel;
     public Rigidbody rb;
     public AudioSource collect;
+    public AudioSource hit;
+    public AudioSource jump;
     public TMP_Text score_text;
     public TMP_Text health_text;
-    public TMP_Text ability_text;
-    public bool specialAbility = false;
+    public TMP_Text ability_text ;
 
     void Start()
     {
@@ -30,8 +31,6 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(this.gameObject.transform.position.y);
-        Debug.Log(this.gameObject.transform.position.y<1.1);
         if (Input.GetKeyDown(KeyCode.Space) && abilityPoints > 0 && this.gameObject.transform.position.y <1.1)
         {
             rb.AddForce(Vector2.up * jumpAmount, ForceMode.Impulse);
@@ -42,6 +41,12 @@ public class player : MonoBehaviour
         if (healthPoints <= 0)
         {
             GameOver();
+        }
+        if (Input.GetKey(KeyCode.Q) && abilityPoints >= 5)
+        {
+            abilityPoints -= 5;
+            ability_text.text = "Ability: " + abilityPoints;
+            // Rest of logic is inside GM.
         }
 
         transform.Translate(new Vector3(0, 0, Time.deltaTime * playerSpeed));
@@ -66,66 +71,58 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("OneLaneObstacle"))
         {
-
-            if (healthPoints < 5) { healthPoints -= 3; }
+            hit.Play();
+            healthPoints -= 3; 
             health_text.text = "Health: " + healthPoints;
             Destroy(collision.gameObject);
-            //Debug.Log("Collide With One Lane Obstacle " + healthPoints);
         }
         else if (collision.gameObject.CompareTag("TwoLaneObstacle"))
         {
-            if (healthPoints < 5) { healthPoints -= 2; }
+            
+            healthPoints -= 2; 
+            hit.Play();
             health_text.text = "Health: " + healthPoints;
             Destroy(collision.gameObject);
-            //Debug.Log("Collide With Two Lane Obstacle " + healthPoints);
         }
         else if (collision.gameObject.CompareTag("ThreeLaneObstacle"))
         {
-            if (healthPoints < 5){ healthPoints -= 1; }
+            hit.Play();
+            healthPoints -= 1;
             health_text.text = "Health: " + healthPoints;
             Destroy(collision.gameObject);
-            //Debug.Log("Collide With Thre Lane Obstacle " + healthPoints);
         }
         else if (collision.gameObject.CompareTag("Jump1Lane"))
         {
+            jump.Play();
             score += 3;
             score_text.text = "Score: " + score;
             Destroy(collision.gameObject);
-            //Debug.Log("Jump 1 Lane Obstacle " );
         }
         else if (collision.gameObject.CompareTag("Jump2Lane"))
         {
+            jump.Play();
             score += 2;
             score_text.text = "Score: " + score;
             Destroy(collision.gameObject);
-            //Debug.Log("Jump 2 Lane Obstacle ");
         }
         else if (collision.gameObject.CompareTag("Jump3Lane"))
         {
+            jump.Play();
             score += 1;
             score_text.text = "Score: " + score;
             Destroy(collision.gameObject);
-            //Debug.Log("Jump 3 Lane Obstacle ");
         }
         else if (collision.gameObject.CompareTag("Health"))
         {
-
-            if(healthPoints < 5) { healthPoints += 1; }
-            collect.Play();
+            if(healthPoints < 5) { healthPoints += 1; collect.Play(); }
             health_text.text = "Health: " + healthPoints;
-            //Debug.Log("Aloooo");
             Destroy(collision.gameObject);
-            //Debug.Log("Collide With Health ");
         }
         else if (collision.gameObject.CompareTag("Ability"))
         {
-
-            if (abilityPoints < 10) { abilityPoints += 1; }
+            if (abilityPoints < 10) { abilityPoints += 1; collect.Play(); }
             ability_text.text = "Ability: " + abilityPoints;
-            //Debug.Log("Collide With Ability");
             Destroy(collision.gameObject);
-            //Debug.Log(abilityPoints);
-            collect.Play();
         }
 
     }
