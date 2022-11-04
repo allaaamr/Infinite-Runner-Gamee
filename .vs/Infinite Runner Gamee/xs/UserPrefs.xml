@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{8B798EE9-93BE-4AA8-FC80-0CE720782D2E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/MyGameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scenes/MainMenu.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/player.cs" Line="18" Column="29" />
       <File FileName="Assets/Scripts/Player/MyGameManager.cs" Line="14" Column="31" />
       <File FileName="Assets/Scripts/Scenes/MainMenu.cs" Line="12" Column="1" />
-      <File FileName="Assets/Scripts/Scenes/GameOverPanel.cs" Line="11" Column="37" />
-      <File FileName="Assets/Scripts/Scenes/PauseMenu.cs" Line="48" Column="37" />
-      <File FileName="Assets/Scripts/Objects/Rotate.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="7" Column="27" />
+      <File FileName="Assets/Scripts/Scenes/GameOverPanel.cs" />
+      <File FileName="Assets/Scripts/Scenes/PauseMenu.cs" />
+      <File FileName="Assets/Scripts/Objects/Rotate.cs" />
+      <File FileName="Assets/Scripts/AudioManager.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +17,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Objects" expanded="True" />
                 <Node name="Player" expanded="True">
-                  <Node name="MyGameManager.cs" selected="True" />
+                  <Node name="player.cs" selected="True" />
                 </Node>
                 <Node name="Scenes" expanded="True" />
               </Node>

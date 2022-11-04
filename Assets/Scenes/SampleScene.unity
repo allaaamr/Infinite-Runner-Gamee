@@ -356,7 +356,7 @@ MonoBehaviour:
   - {fileID: 5894679870792662007, guid: cae150a437f2a4abe9f3448f6992d1be, type: 3}
   scene: {fileID: 2959808775795401172, guid: c493121fb4fca459cbca2dd79f47322b, type: 3}
   player_obj: {fileID: 1395267856}
-  zLocation: -35
+  zLocation: -28
   numberOfColliders: 10
   sceneCount: 1
   gameOverPanel: {fileID: 508598817}
@@ -374,13 +374,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8e0d150ab0f004a37bbba2e09ac7aa2b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.551
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 68
+  Priority: 141
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -559,10 +559,10 @@ RectTransform:
   m_Father: {fileID: 370374266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 442.03122, y: 86.7}
-  m_SizeDelta: {x: -938.5, y: -204.5}
+  m_AnchoredPosition: {x: -180, y: -30.300003}
+  m_SizeDelta: {x: 81.5, y: 29.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351128012
 MonoBehaviour:
@@ -773,10 +773,10 @@ RectTransform:
   m_Father: {fileID: 370374266}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -502.6249, y: 86.7}
-  m_SizeDelta: {x: -938.5, y: -204.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 97.37509, y: -30.300003}
+  m_SizeDelta: {x: 261.5, y: 29.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &454733350
 MonoBehaviour:
@@ -908,10 +908,10 @@ RectTransform:
   m_Father: {fileID: 370374266}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -503, y: 58.69998}
-  m_SizeDelta: {x: -938.5, y: -204.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 97, y: -58.30002}
+  m_SizeDelta: {x: 261.5, y: 29.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472149708
 MonoBehaviour:
@@ -2749,7 +2749,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2845,7 +2845,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2941,7 +2941,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

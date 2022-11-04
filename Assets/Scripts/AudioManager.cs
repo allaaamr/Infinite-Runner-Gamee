@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource backgroundAudio;
+    private bool isMuted = false;
 
-    public void Start()
+    public void MutePressed()
     {
-    }
-    public void Update()
-    {
-        Debug.Log(PauseMenu.GameIsPaused);
-        if (PauseMenu.GameIsPaused)
-        {
-            //backgroundAudio.Play();
-            Debug.Log("Here1");
-        }
-        else
-        {
-             //backgroundAudio.Pause();
-        }
-        
+        isMuted = !isMuted;
+        AudioListener.pause = isMuted;
     }
 }
