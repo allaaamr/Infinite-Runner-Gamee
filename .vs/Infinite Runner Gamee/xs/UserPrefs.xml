@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{8B798EE9-93BE-4AA8-FC80-0CE720782D2E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scenes/MainMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/MyGameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/player.cs" Line="18" Column="29" />
-      <File FileName="Assets/Scripts/Player/MyGameManager.cs" Line="14" Column="31" />
-      <File FileName="Assets/Scripts/Scenes/MainMenu.cs" Line="12" Column="1" />
-      <File FileName="Assets/Scripts/Scenes/GameOverPanel.cs" />
-      <File FileName="Assets/Scripts/Scenes/PauseMenu.cs" />
-      <File FileName="Assets/Scripts/Objects/Rotate.cs" />
-      <File FileName="Assets/Scripts/AudioManager.cs" />
+      <File FileName="Assets/Scripts/Scenes/PauseMenu.cs" Line="56" Column="35" />
+      <File FileName="Assets/Scripts/Player/player.cs" Line="37" Column="1" />
+      <File FileName="Assets/Scripts/Player/MyGameManager.cs" Line="53" Column="25" />
+      <File FileName="Assets/Scripts/Scenes/MainMenu.cs" Line="17" Column="30" />
+      <File FileName="Assets/Scripts/Scenes/GameOverPanel.cs" Line="24" Column="6" />
+      <File FileName="Assets/Scripts/Objects/Rotate.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AudioManager.cs" Line="11" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +17,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Objects" expanded="True" />
                 <Node name="Player" expanded="True">
-                  <Node name="player.cs" selected="True" />
+                  <Node name="MyGameManager.cs" selected="True" />
                 </Node>
                 <Node name="Scenes" expanded="True" />
               </Node>
@@ -29,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cb5025e2-df01-47d2-876f-a63d2080c738" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0e8ed55d-77ad-4aa5-b51b-8907dc38bf02" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

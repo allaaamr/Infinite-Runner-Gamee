@@ -16,10 +16,12 @@ public class MyGameManager : MonoBehaviour
     public GameObject homePanel;
     private bool QPressed = false;
     public AudioSource backg;
+    public player myPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
+        myPlayer = (player)FindObjectOfType(typeof(player));
         backg.Play();
         homePanel.SetActive(true);
         activePrefabs = new List<GameObject>();
@@ -38,8 +40,10 @@ public class MyGameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q) && player.abilityPoints >=5)
+        homePanel.SetActive(true);
+        if (Input.GetKey(KeyCode.Q) && myPlayer.abilityPoints >=5)
         {
+            Debug.Log("I Presse Q");
             int length = activePrefabs.ToArray().Length;
             for ( int i = 0; i<length; i++)
             {
@@ -49,18 +53,16 @@ public class MyGameManager : MonoBehaviour
             activePrefabs.Clear();
         }
 
-        if (PauseMenu.GameIsPaused)
-        {
-            Debug.Log("I Am Paused");
-            homePanel.SetActive(false);
-        }
-        else
-        {
-            Debug.Log("I Am Playing");
-            homePanel.SetActive(true);
+        //if (PauseMenu.GameIsPaused)
+        //{
+        //    homePanel.SetActive(false);
+        //}
+        //else
+        //{
+        //    homePanel.SetActive(true);
 
 
-        }
+        //}
         if (sceneCount == 1 && player_obj.transform.position.z > -28) 
         {
             GameObject sceneObject;
@@ -115,12 +117,6 @@ public class MyGameManager : MonoBehaviour
         activePrefabs.Add(tile);
     }
 
-    //public void setVolume(float sliderValue)
-    //{
-    //    background.volume = sliderValue;
-    //    Debug.Log(background.volume);
-    //}
-
     private void DeletePrefab()
     {
         Debug.Log("Deleting Prefab");
@@ -134,6 +130,22 @@ public class MyGameManager : MonoBehaviour
         
         Destroy(activeScene[0]);
         activeScene.RemoveAt(0);
+    }
+
+    public void SAButtonPressed()
+    {
+        player thePlayer = (player)FindObjectOfType(typeof(player));
+        Debug.Log(thePlayer.abilityPoints);
+        if (thePlayer.abilityPoints >= 5)
+        {
+            int length = activePrefabs.ToArray().Length;
+            for (int i = 0; i < length; i++)
+            {
+                DeletePrefab();
+            }
+            QPressed = true;
+            activePrefabs.Clear();
+        }
     }
 
 

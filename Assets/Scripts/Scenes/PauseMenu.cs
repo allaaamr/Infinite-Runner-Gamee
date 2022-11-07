@@ -44,15 +44,18 @@ public class PauseMenu : MonoBehaviour
     }
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         gameScene.SetActive(true);
         PauseScene.SetActive(false);
         SceneManager.LoadScene("MenuScene");
     }
     public void Replay()
     {
-        gameScene.SetActive(true);
+        Time.timeScale = 1f;
         PauseScene.SetActive(false);
+        gameScene.SetActive(true);
         SceneManager.LoadScene("SampleScene");
+        
     }
 
 }
